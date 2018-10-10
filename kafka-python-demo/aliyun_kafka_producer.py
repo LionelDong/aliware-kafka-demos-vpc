@@ -19,7 +19,7 @@ partitions = producer.partitions_for(conf['topic_name'])
 print 'Topic下分区: %s' % partitions
 
 try:
-    future = producer.send(conf['topic_name'], 'hello aliyun-kafka!')
+    future = producer.send(conf['topic_name'], 'hello aliyun-kafka!'.encode("utf-8"))
     future.get()
     print 'send message succeed.'
 except KafkaError, e:
